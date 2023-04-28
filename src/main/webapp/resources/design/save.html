@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sign-up</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+<div id="header">
+  <h1>Project</h1>
+</div>
+<div id="nav">
+  <ul>
+    <li>
+      <a href="/save">회원가입</a>
+    </li>
+    <li>
+      <a href="/login">로그인</a>
+    </li>
+    <li>
+      <a href="/members">회원목록</a>
+    </li>
+    <li>
+      <a href="/">홈으로.</a>
+    </li>
+
+  </ul>
+
+</div>
+<div id="section">
+  <div class="login">
+    <h2>회원가입</h2>
+    <form action="/save" method="post" name="saveForm">
+      <table>
+        <tr>
+          <th>이메일</th>
+          <td>
+            <input type="text" name="memberEmail" id="member-email" placeholder="이메일 입력">
+          </td>
+        </tr>
+        <tr>
+          <th>비밀번호</th>
+          <td>
+            <input type="text" name="memberPassword" id="member-password" placeholder="비밀번호 입력">
+          </td>
+        </tr>
+        <tr>
+          <th>이름</th>
+          <td>
+            <input type="text" name="memberName" id="member-name" placeholder="이름 입력">
+          </td>
+        </tr>
+        <tr>
+          <th>생년월일</th>
+          <td>
+            <input type="text" name="memberBirth" id="member-Birth" placeholder="주민번호 앞자리 입력">
+          </td>
+        </tr>
+        <tr>
+          <th>전화번호</th>
+          <td>
+            <input type="text" name="memberMobile" id="member-mobile" placeholder="000-0000-0000 입력">
+          </td>
+        </tr>
+        <tr>
+          <!--  colspan=2는 2칸을 하나로 합침(병합)
+                위아래를 합칠땐 rowspan을 쓴다 -->
+          <td colspan="2">
+            <input  type="button" onclick="input_check()" value="회원가입" style="margin: auto">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
+<div id="footer">
+  <p>ICIA Academy Copyright&copy;2023</p>
+</div>
+</body>
+<script>
+  const input_check = () => {
+    const memberEmail = document.getElementById("member-email");
+    if(memberEmail.value == ""){
+      alert("이메일을 입력해주세요");
+      memberEmail.focus();
+    } else{
+      document.saveForm.submit();
+    }
+  }
+</script>
+</html>

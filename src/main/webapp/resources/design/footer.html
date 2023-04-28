@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="footer">
+
+<!-- ⓒ기호 뒤에 현재 년도에 맞게 알아서 바귀게끔 js를 적용하자   -->
+<!--  &copy;는 ⓒ기호를 출력하는 문법이다
+
+ -->
+<!--    <p>&copy;2023 HRDKOREA All rights reserved</p>-->
+</div>
+</body>
+<script>
+    const date = new Date();
+
+    // 자바스크립스에서도 현재시간을 알 수있다
+    console.log(date);
+
+    //현재 년도값만 나타냄
+    console.log(date.getFullYear());
+    const footer = document.getElementById("footer");
+    footer.innerHTML = "<p>&copy;"+ date.getFullYear() + " HRDKOREA All rights reserved</p>"
+</script>
+</html>

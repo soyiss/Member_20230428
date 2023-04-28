@@ -1,0 +1,88 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#header{
+    background-color: rgba(229, 223, 183, 0.81);
+    text-align: center;
+    padding: 20px;
+}
+#nav{
+    background-color: #c3c1ef;
+}
+#nav ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+#nav ul li {
+    float: left;
+}
+
+#nav ul li a {
+    /*inline은 높이 너비 지정을 못하고 block요소만 가능
+    inline인데 높이 너비 지정을 하고싶으면 밑에처럼
+    */
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    color: #5b5858;
+}
+#section{
+    background-color: #b5ccae;
+
+    padding: 50px;
+
+}
+
+#section h2{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/*테이블을 중앙정렬하고싶으면 마진오토*/
+#section table{
+
+    margin: auto;
+    border: 1px solid black;
+}
+
+#section table tr, th, td{
+    padding: 5px;
+    border: 1px solid black;
+}
+
+#section pre{
+    background-color: #ffffff;
+}
+#section input {
+    margin:  auto;
+}
+
+#section .login{
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+#section .table1{
+    float: left;
+}
+
+#nav ul li.login-name{
+    float: right;
+}
+
+input{
+    display: block;
+    text-align: center;
+}
+
+#footer{
+    background-color: rgba(229, 223, 183, 0.81);
+    text-align: center;
+    padding: 20px;
+}
+
