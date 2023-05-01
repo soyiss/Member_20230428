@@ -20,7 +20,15 @@
             <a href="/login">로그인</a>
         </li>
         <li>
-            <a href="/list">회원목록</a>
+            <c:choose>
+                <c:when test="${sessionScope.loginEmail == '0129'}">
+                    <a href="/list">회원목록</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="/"></a>
+                </c:otherwise>
+            </c:choose>
+<%--            <a href="/list">회원목록</a>--%>
         </li>
         <%-- 로그인을 했으면 로그아웃이 보이고 안했으면 로그인이보임
         jsp에서 if(=c:when) - else(=c:otherwise) 쓴다--%>

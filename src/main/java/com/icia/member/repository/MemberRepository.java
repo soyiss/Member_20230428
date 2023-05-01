@@ -5,6 +5,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class MemberRepository {
     @Autowired
@@ -31,4 +33,15 @@ public class MemberRepository {
         //로그인 조회결과는 하나니깐 selectOne를 해줌
          return sql.selectOne("Member.login",memberDTO);
     }
+
+    public List<MemberDTO> findAll() {
+        return sql.selectList("Member.findAll");
+//      return sql.selectOne("Member.findAll");를 쓰면 리턴 타입은 리스트(객체 여러개)를 받는다 하고
+//      리턴을 SelectOne로 쓰면 DTO객체 하나만 받아와서 오류가 뜬다
+    }
+
+    public void delete(Long id){
+        sql.delete("Member.delete", id);
+    }
+
 }

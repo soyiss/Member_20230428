@@ -14,5 +14,13 @@
         select * from member_table where memberEmail=#{memberEmail} and memberPassword=#{memberPassword}
     </select>
 
+    <select id="findAll" resultType="member">
+        select * from member_table
+    </select>
+
+    <delete id="delete" parameterType="Long">
+        delete from member_table where id=#{id}
+    </delete>
+
 
 </mapper>

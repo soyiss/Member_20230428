@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class MemberController {
@@ -66,11 +67,25 @@ public class MemberController {
 
     @GetMapping("/logout")
     public String logout(HttpSession session){
-        // 세션에 담긴 값 전체 삭제하는 방법
+        //(방법1) 세션에 담긴 값 전체 삭제하는 방법
         session.invalidate();
-        //특정 파라미터만 삭제
+        //(방법2) 특정 파라미터만 삭제하는 방법
 //        session.removeAttribute("loginEmail");
         return "redirect:/";
 
     }
+
+    @GetMapping("/list")
+    public String findAll(Model model){
+        List<MemberDTO> memberDTOList = memberService.findAll();
+        model.addAttribute("memberList",memberDTOList);
+        return "list";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id){
+        memberService.delete(id);
+        return "redirect:/list";
+    }
+
 }

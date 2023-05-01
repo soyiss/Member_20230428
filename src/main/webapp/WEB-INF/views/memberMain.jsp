@@ -16,8 +16,8 @@
 <%@include file="./conponent/nav.jsp"%>
 
 <div id="section">
-${sessionScope.loginEmail} 님 환영해요!
-  <button>로그아웃</button>
+${sessionScope.loginEmail} 님 환영해요!<br>
+  <button onclick="location.href='/logout'">로그아웃</button>
   <button onclick="fun1()">세션값 js에서 확인</button>
 </div>
 <%@include file="./conponent/footer.jsp"%>
@@ -27,5 +27,6 @@ ${sessionScope.loginEmail} 님 환영해요!
     const loginEmail = '${sessionScope.loginEmail}';
     console.log("로그인 이메일: ", loginEmail);
   }
+
 </script>
 </html>

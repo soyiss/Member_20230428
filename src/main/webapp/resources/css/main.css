@@ -48,6 +48,9 @@
     border: 1px solid black;
 }
 
+#section pre table{
+    margin-left: 60px;
+}
 #section table tr, th, td{
     padding: 5px;
     border: 1px solid black;
