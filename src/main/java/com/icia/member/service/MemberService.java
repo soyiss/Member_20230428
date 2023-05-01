@@ -38,5 +38,11 @@ public class MemberService {
         memberRepository.delete(id);
    }
 
+    public MemberDTO findByMemberEmail(String loginEmail) {
+        return memberRepository.finByMemberEmail(loginEmail);
+    }
 
+    public void update(MemberDTO memberDTO) {
+        memberRepository.update(memberDTO);
+    }
 }

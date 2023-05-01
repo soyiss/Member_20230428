@@ -98,4 +98,19 @@ public class MemberController {
         return "redirect:/list";
     }
 
+    @GetMapping("/update")
+    // 세션에 담겨있는 로그인 이메일값을 꺼내야됨
+    public String updateForm(HttpSession session, Model model){
+        //session.getAttribute는 오브젝트로 리턴을 주고 우리가 받고싶은 타입은 string이기 때문에 형변환필요
+        String loginEmail = (String)session.getAttribute("loginEmail");
+        MemberDTO memberDTO = memberService.findByMemberEmail(loginEmail);
+        model.addAttribute("member", memberDTO);
+        return "memberUpdate";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO) {
+        memberService.update(memberDTO);
+        return "redirect:/detail?id="+memberDTO.getId();
+    }
 }

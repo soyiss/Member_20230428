@@ -17,8 +17,8 @@
 
 <div id="section">
 ${sessionScope.loginEmail} 님 환영해요!<br>
-  <button onclick="location.href='/logout'">로그아웃</button>
   <button onclick="fun1()">세션값 js에서 확인</button>
+  <button onclick="update()">정보 수정</button>
 
 
 
@@ -36,6 +36,11 @@ ${sessionScope.loginEmail} 님 환영해요!<br>
   const fun1 = () => {
     const loginEmail = '${sessionScope.loginEmail}';
     console.log("로그인 이메일: ", loginEmail);
+  }
+
+  const update = () => {
+    <%--const loginEmail = '${sessionScope.loginEmail}';--%>
+    location.href="/update";
   }
 
 </script>
