@@ -25,6 +25,7 @@
       <th>이름</th>
       <th>생년월일</th>
       <th>전화번호</th>
+      <th>상세조회</th>
       <th>삭제</th>
     </tr>
 
@@ -38,7 +39,10 @@
       <td>${member.memberBirth}</td>
       <td>${member.memberMobile}</td>
       <td>
-        <button onclick="delete_member('${member.id}')">회원 삭제</button>
+          <button onclick="detail_member('${member.id}')">회원 조회</button>
+      </td>
+      <td>
+          <button onclick="delete_member('${member.id}')">회원 삭제</button>
       </td>
       </tr>
     </c:forEach>
@@ -47,6 +51,10 @@
 <%@include file="./conponent/footer.jsp"%>
 </body>
 <script>
+
+    const detail_member = (id) => {
+      location.href="./detail?id="+id;
+    }
   const delete_member = (id) => {
     location.href="./delete?id="+id;
   }

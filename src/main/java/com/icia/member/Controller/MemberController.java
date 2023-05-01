@@ -4,6 +4,7 @@ import com.icia.member.dto.MemberDTO;
 import com.icia.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -82,9 +83,18 @@ public class MemberController {
         return "list";
     }
 
+    @GetMapping("/detail")
+    public String findById(@RequestParam("id") Long id, Model model){
+        MemberDTO memberDTO = memberService.findById(id);
+        model.addAttribute("member", memberDTO);
+        return "detail";
+    }
+
+
     @GetMapping("/delete")
     public String delete(@RequestParam("id") Long id){
         memberService.delete(id);
+//        리다이렉트로 목록 출력을 위한 주소요청을 함
         return "redirect:/list";
     }
 
