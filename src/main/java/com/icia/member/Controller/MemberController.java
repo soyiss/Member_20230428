@@ -3,6 +3,8 @@ package com.icia.member.Controller;
 import com.icia.member.dto.MemberDTO;
 import com.icia.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
@@ -113,4 +115,31 @@ public class MemberController {
         memberService.update(memberDTO);
         return "redirect:/detail?id="+memberDTO.getId();
     }
+
+    @PostMapping("/email-check")
+    public ResponseEntity emailCheck(@RequestParam("memberEmail") String memberEmail) {
+        System.out.println("memberEmail = " + memberEmail);
+        MemberDTO memberDTO = memberService.findByMemberEmail(memberEmail);
+        if (memberDTO == null) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+    }
+
+
+
+    @GetMapping("/detail-ajax")
+    public ResponseEntity detailAjax(@RequestParam("id") Long id){
+        System.out.println("id = " + id);
+        MemberDTO memberDTO =  memberService.findById(id);
+
+        if(memberDTO != null){
+            return new ResponseEntity<>(HttpStatus.OK);
+        }else{
+            // 찾고자 하는 아이디가 없다면 낫파운드
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }

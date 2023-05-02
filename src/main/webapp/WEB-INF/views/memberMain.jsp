@@ -39,7 +39,6 @@ ${sessionScope.loginEmail} 님 환영해요!<br>
   }
 
   const update = () => {
-    <%--const loginEmail = '${sessionScope.loginEmail}';--%>
     location.href="/update";
   }
 

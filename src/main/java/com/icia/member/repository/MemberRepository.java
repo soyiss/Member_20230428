@@ -39,14 +39,14 @@ public class MemberRepository {
 //      return sql.selectOne("Member.findAll");를 쓰면 리턴 타입은 리스트(객체 여러개)를 받는다 하고
 //      리턴을 SelectOne로 쓰면 DTO객체 하나만 받아와서 오류가 뜬다
     }
-
+    public MemberDTO findById(Long id) {
+        return sql.selectOne("Member.findById", id);
+    }
     public void delete(Long id){
         sql.delete("Member.delete", id);
     }
 
-    public MemberDTO findById(Long id) {
-        return sql.selectOne("Member.findById", id);
-    }
+
 
     public void update(MemberDTO memberDTO) {
         sql.update("Member.update",memberDTO);
@@ -55,4 +55,6 @@ public class MemberRepository {
     public MemberDTO finByMemberEmail(String loginEmail) {
         return sql.selectOne("Member.findByMemberEmail",loginEmail);
     }
+
+
 }

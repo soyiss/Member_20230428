@@ -15,7 +15,9 @@
 <%@include file="./conponent/header.jsp"%>
 <%@include file="./conponent/nav.jsp"%>
 <div id="section">
+  
   <h2>회원수정 </h2>
+
   <form action="/update" method="post" name="updateForm">
     <input type="text" name="id" value="${member.id}" readonly placeholder="아이디"><br>
     <input type="text" name="memberEmail" value="${member.memberEmail}" readonly placeholder="이메일"><br>
@@ -26,6 +28,7 @@
     <input type="button" onclick="update_check()" value="수정">
 
   </form>
+
 </div>
 <%@include file="./conponent/footer.jsp"%>
 
