@@ -128,15 +128,13 @@ public class MemberController {
     }
 
 
-
     @GetMapping("/detail-ajax")
-    public ResponseEntity detailAjax(@RequestParam("id") Long id){
+    public ResponseEntity detailAjax(@RequestParam("id") Long id) {
         System.out.println("id = " + id);
-        MemberDTO memberDTO =  memberService.findById(id);
-
-        if(memberDTO != null){
-            return new ResponseEntity<>(HttpStatus.OK);
-        }else{
+        MemberDTO memberDTO = memberService.findById(id);
+        if (memberDTO != null) {
+            return new ResponseEntity<>(memberDTO, HttpStatus.OK);
+        } else {
             // 찾고자 하는 아이디가 없다면 낫파운드
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

@@ -13,6 +13,8 @@ public class MemberDTO {
     private String memberPassword;
     private String memberName;
     private String memberBirth;
-    private String memberMobile;
+
+
+
 
 }
